@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lol_app/view_model/home_view_model.dart';
+import 'package:provider/provider.dart';
 
 import 'view/home_view.dart';
 
@@ -12,13 +14,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        Provider(create: ((context) => const HomePageView())),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => HomePageView(),
+        },
       ),
-      home: const HomePageView(),
     );
   }
 }
