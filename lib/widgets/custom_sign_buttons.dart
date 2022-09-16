@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomSignButton extends StatelessWidget {
   final String title;
-  final Function? onPressed;
+  final VoidCallback onPressed;
   const CustomSignButton(
       {super.key, required this.title, required this.onPressed});
 
@@ -14,9 +14,7 @@ class CustomSignButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(22),
         ),
       ),
-      onPressed: () {
-        onPressed;
-      },
+      onPressed: onPressed,
       child: SizedBox(
         width: MediaQuery.of(context).size.width * .6,
         child: Center(

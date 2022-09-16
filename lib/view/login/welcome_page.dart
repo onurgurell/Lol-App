@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lol_app/view/auth_page/sign_in_page.dart';
 
+import '../../utils/constants/constants.dart';
 import '../../widgets/custom_sign_buttons.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -19,17 +21,27 @@ class WelcomePage extends StatelessWidget {
             const SizedBox(
               height: 22,
             ),
-            CustomSignButton(
-              title: 'Sign Up',
-              onPressed: () {},
-            ),
-            CustomSignButton(
-              title: 'Sign In',
-              onPressed: () {},
-            ),
+            _signUpButton(),
+            _signInButton(context),
           ]),
         ),
       ),
+    );
+  }
+
+  CustomSignButton _signInButton(BuildContext context) {
+    return CustomSignButton(
+      title: 'Sign In',
+      onPressed: () {
+        Navigator.pushNamed(context, '/signIn');
+      },
+    );
+  }
+
+  CustomSignButton _signUpButton() {
+    return CustomSignButton(
+      title: 'Sign Up',
+      onPressed: () {},
     );
   }
 
@@ -48,10 +60,12 @@ class WelcomePage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(9),
       child: const Text(
-        'Welcome Application',
+        'WELCOME LEAGUE OF LEAGENDS WORLD',
         style: TextStyle(
           fontSize: 22,
+          fontWeight: FontWeight.bold,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
