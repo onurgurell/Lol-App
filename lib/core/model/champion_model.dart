@@ -1,6 +1,10 @@
+import 'package:flutter/material.dart';
+
 import '../utils/constants/constants.dart';
 
-class Champion {
+class Champion extends ChangeNotifier {
+  //final LOLService _lolService = LOLService();
+
   final String id;
   final String name;
   final String title;
@@ -22,6 +26,13 @@ class Champion {
       stats: ChampionStats.formJson(json['stats']),
     );
   }
+
+  // void updateSkins() async {
+  //   if (skins == null) {
+  //     skins = await _lolService.fetchChampionSkins(id);
+  //     notifyListeners();
+  //   }
+  // }
 }
 
 class ChampionSkin {
@@ -49,7 +60,6 @@ class ChampionSkin {
           '${Constants.BaseSplashImagePath}${json['champion']}_${json['num']}.jpg',
       loadingImage:
           '${Constants.BaseLoadingImagePath}${json['champion']}_${json['num']}.jpg',
-      champion: '',
     );
   }
 }
@@ -100,25 +110,25 @@ class ChampionStats {
 
   factory ChampionStats.formJson(json) {
     return ChampionStats(
-        hp: json['hp'].toString(),
-        hpPerLevel: json['hpperlevel'].toString(),
-        mp: json['mp'].toString(),
-        mpPerLevel: json['mpperlevel'].toString(),
-        moveSpeed: json['movespeed'].toString(),
-        armor: json['armor'].toString(),
-        armorPerLevel: json['armorperlevel'].toString(),
-        spellBlock: json['spellblack'].toString(),
-        spellBlockPerLevel: json['spellblockperlevel'].toString(),
-        attackRange: json['attackrange'].toString(),
-        hpRegen: json['hpregen'].toString(),
-        hpRegenPerLevel: json['hpregenperlevel'].toString(),
-        mpRegen: json['mpregen'].toString(),
-        mpRegenPerLevel: json['mpregenperlevel'].toString(),
-        crit: json['crit'].toString(),
-        critPerLevel: json['critperlevel'].toString(),
-        attackDamage: json['attackdamage'].toString(),
-        attactDamagePerLevel: json['attackdamageperlevel'].toString(),
-        attackSpeedPerLevel: json['attackspeedperlevel'].toString(),
-        attackSpeed: json['attackspeed'].toString());
+        hp: json['hp'].toString() ?? '',
+        hpPerLevel: json['hpperlevel'].toString() ?? '',
+        mp: json['mp'].toString() ?? '',
+        mpPerLevel: json['mpperlevel'].toString() ?? '',
+        moveSpeed: json['movespeed'].toString() ?? '',
+        armor: json['armor'].toString() ?? '',
+        armorPerLevel: json['armorperlevel'].toString() ?? '',
+        spellBlock: json['spellblack'].toString() ?? '',
+        spellBlockPerLevel: json['spellblockperlevel'].toString() ?? '',
+        attackRange: json['attackrange'].toString() ?? '',
+        hpRegen: json['hpregen'].toString() ?? '',
+        hpRegenPerLevel: json['hpregenperlevel'].toString() ?? '',
+        mpRegen: json['mpregen'].toString() ?? '',
+        mpRegenPerLevel: json['mpregenperlevel'].toString() ?? '',
+        crit: json['crit'].toString() ?? '',
+        critPerLevel: json['critperlevel'].toString() ?? '',
+        attackDamage: json['attackdamage'].toString() ?? '',
+        attactDamagePerLevel: json['attackdamageperlevel'].toString() ?? '',
+        attackSpeedPerLevel: json['attackspeedperlevel'].toString() ?? '',
+        attackSpeed: json['attackspeed'].toString() ?? '');
   }
 }
