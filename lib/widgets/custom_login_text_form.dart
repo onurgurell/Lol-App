@@ -2,15 +2,24 @@ import 'package:flutter/material.dart';
 
 class CustomLoginTextForm extends StatelessWidget {
   final String hintText;
+  bool obscure;
   final Icon icon;
-  const CustomLoginTextForm(
-      {super.key, required this.hintText, required this.icon});
+  final TextEditingController textContoller;
+  CustomLoginTextForm({
+    Key key,
+    this.hintText,
+    this.icon,
+    this.textContoller,
+    this.obscure = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        obscureText: obscure,
+        controller: textContoller,
         decoration: InputDecoration(
           prefixIcon: icon,
           hintText: hintText,

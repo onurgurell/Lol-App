@@ -1,37 +1,38 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:lol_app/utils/constants/constants.dart';
-import 'package:lol_app/view/auth_page/sign_in_page.dart';
-import 'package:lol_app/view/login/welcome_page.dart';
-import 'package:lol_app/view_model/home_view_model.dart';
+import 'package:lol_app/feature/home/view/home_view.dart';
+import 'package:lol_app/feature/auth/view/login/welcome_page.dart';
+import 'package:lol_app/feature/auth/view_model/auth_view_model.dart';
+import 'package:lol_app/feature/home/viewModel/home_view_model.dart';
 import 'package:provider/provider.dart';
 
-import 'view/home_view.dart';
-
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => AuthViewModel(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider(create: ((context) => const HomePageView())),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const WelcomePage(),
-          '/signIn': (context) => const SignInPage(),
-        },
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => WelcomePage(),
+        '/homePage': (context) => HomePageView(),
+      },
     );
   }
 }

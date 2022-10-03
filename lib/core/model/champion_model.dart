@@ -7,15 +7,10 @@ class Champion {
   final String blurb;
   final String image;
   final ChampionStats stats;
-  late List<ChampionSkin> skins;
+  List<ChampionSkin> skins;
 
   Champion(
-      {required this.id,
-      required this.name,
-      required this.title,
-      required this.blurb,
-      required this.image,
-      required this.stats});
+      {this.id, this.name, this.title, this.blurb, this.image, this.stats});
 
   factory Champion.fromJson(Map<String, dynamic> json) {
     return Champion(
@@ -38,12 +33,12 @@ class ChampionSkin {
   final String loadingImage;
 
   ChampionSkin(
-      {required this.champion,
-      required this.id,
-      required this.name,
-      required this.num,
-      required this.splashImage,
-      required this.loadingImage});
+      {this.champion,
+      this.id,
+      this.name,
+      this.num,
+      this.splashImage,
+      this.loadingImage});
 
   factory ChampionSkin.fromJson(Map<String, dynamic> json) {
     return ChampionSkin(
@@ -82,26 +77,26 @@ class ChampionStats {
   final String attackSpeed;
 
   ChampionStats(
-      {required this.hp,
-      required this.hpPerLevel,
-      required this.mp,
-      required this.mpPerLevel,
-      required this.moveSpeed,
-      required this.armor,
-      required this.armorPerLevel,
-      required this.spellBlock,
-      required this.spellBlockPerLevel,
-      required this.attackRange,
-      required this.hpRegen,
-      required this.hpRegenPerLevel,
-      required this.mpRegen,
-      required this.mpRegenPerLevel,
-      required this.crit,
-      required this.critPerLevel,
-      required this.attackDamage,
-      required this.attactDamagePerLevel,
-      required this.attackSpeedPerLevel,
-      required this.attackSpeed});
+      {this.hp,
+      this.hpPerLevel,
+      this.mp,
+      this.mpPerLevel,
+      this.moveSpeed,
+      this.armor,
+      this.armorPerLevel,
+      this.spellBlock,
+      this.spellBlockPerLevel,
+      this.attackRange,
+      this.hpRegen,
+      this.hpRegenPerLevel,
+      this.mpRegen,
+      this.mpRegenPerLevel,
+      this.crit,
+      this.critPerLevel,
+      this.attackDamage,
+      this.attactDamagePerLevel,
+      this.attackSpeedPerLevel,
+      this.attackSpeed});
 
   factory ChampionStats.formJson(json) {
     return ChampionStats(
