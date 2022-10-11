@@ -20,7 +20,7 @@ class CircleChampionsProfile extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(image),
+              image: AssetImage(image),
               fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.circular(50)),

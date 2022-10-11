@@ -1,4 +1,5 @@
 import 'dart:convert' as convert;
+import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
@@ -29,8 +30,11 @@ class LolService {
   //   }
 
   Future<List<Champion>> fetchChampions() async {
-    var response = await http.get(Uri.parse(
-        'http://ddragon.leagueoflegends.com/cdn/10.5.1/data/en_US/champion.json'));
+    var response = await http.get(
+      Uri.parse(
+        'http://ddragon.leagueoflegends.com/cdn/10.5.1/data/en_US/champion.json',
+      ),
+    );
     var jsonResponse = convert.jsonDecode(response.body);
 
     Map<String, dynamic> data = jsonResponse['data'];
@@ -43,4 +47,25 @@ class LolService {
 
     return result;
   }
+  // Future<List<Champion>> fetchChampions() async {
+  //   var response = await http.post(Uri.parse(Constants.BaseUrl));
+
+  //   if (response.statusCode == 200) {
+  //     final json = jsonDecode(response.body) as List;
+
+  //     final champ = json.map((e) {
+  //       return Champion(
+  //         id: e['id'],
+  //         name: e['name'],
+  //         title: e['title'],
+  //         image: e['image'],
+  //       );
+  //     }).toList();
+  //     return champ;
+  //   } else {
+  //     print('Data is not found');
+  //   }
+
+  //   return [];
+  // }
 }

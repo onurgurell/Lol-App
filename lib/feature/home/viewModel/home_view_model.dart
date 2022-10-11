@@ -15,7 +15,6 @@ class HomeViewModel extends ChangeNotifier {
     _loading = true;
     notifyListeners();
     champion = await _lolService.fetchChampions();
-    notifyListeners();
 
     _loading = false;
     notifyListeners();

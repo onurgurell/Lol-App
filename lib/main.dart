@@ -12,21 +12,18 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
-    MyApp(),
+    const MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
-  final LolService _lolService = LolService();
+  const MyApp({Key key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          FutureProvider<List<Champion>>(
-            create: (context) => _lolService.fetchChampions(),
-          ),
           ChangeNotifierProvider(
             create: (_) => AuthViewModel(),
           ),
@@ -41,8 +38,8 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/',
           routes: {
-            '/': (context) => WelcomePage(),
-            '/homePage': (context) => HomePageView(),
+            '/': (context) => const WelcomePage(),
+            '/homePage': (context) => const HomePageView(),
           },
         ));
   }

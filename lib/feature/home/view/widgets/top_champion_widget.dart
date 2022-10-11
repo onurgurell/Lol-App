@@ -6,10 +6,10 @@ import '../../../../core/model/champion_model.dart';
 import 'circle_champion_widget.dart';
 
 class TopChampionsWidget extends StatelessWidget {
-  final List<Champion> champion;
+  final List<Champion> champ;
   const TopChampionsWidget({
     Key key,
-    this.champion,
+    this.champ,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,11 @@ class TopChampionsWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: ((context, index) {
               return CircleChampionsProfile(
-                image: '${viewModel.champion[index].image}',
+                image: viewModel.champion[index].image,
                 width: 75,
                 height: 50,
               );
+              print(champ.length);
             }),
           ),
         );
