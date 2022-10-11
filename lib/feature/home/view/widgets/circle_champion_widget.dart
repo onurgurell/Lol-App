@@ -6,7 +6,7 @@ class CircleChampionsProfile extends StatelessWidget {
   final double width;
   final double height;
 
-  final ImageProvider<Object> image;
+  final String image;
   const CircleChampionsProfile({Key key, this.image, this.width, this.height})
       : super(key: key);
 
@@ -15,11 +15,12 @@ class CircleChampionsProfile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        color: Colors.red,
         width: width,
         height: height,
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: image,
+              image: NetworkImage(image),
               fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.circular(50)),

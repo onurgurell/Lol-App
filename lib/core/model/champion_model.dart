@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../service/champions_sevice.dart';
 import '../utils/constants/constants.dart';
 
 class Champion extends ChangeNotifier {
-  //final LOLService _lolService = LOLService();
+  final LolService _lolService = LolService();
 
   final String id;
   final String name;

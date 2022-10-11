@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lol_app/feature/home/view/home_view.dart';
-import 'package:provider/provider.dart';
 
 import '../../../core/service/auth_service.dart';
 

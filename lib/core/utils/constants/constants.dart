@@ -10,6 +10,8 @@ class Constants {
   static const BaseLoadingImagePath =
       'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/';
 
+  static const BaseUrl =
+      'http://ddragon.leagueoflegends.com/cdn/10.5.1/data/en_US/champion.json';
   static const Color lightPrimary = Colors.white;
   static const Color darkPrimary = Colors.black;
   static const Color lightAccent = Colors.black;
