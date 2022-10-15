@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lol_app/feature/home/viewModel/home_view_model.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/model/champion_model.dart';
-
 class ChampionCardWidget extends StatelessWidget {
   const ChampionCardWidget({
     Key key,
@@ -14,7 +12,7 @@ class ChampionCardWidget extends StatelessWidget {
     return Consumer<HomeViewModel>(builder: ((context, viewModel, child) {
       return Expanded(
         child: ListView.builder(
-          itemCount: viewModel.champion.length,
+          itemCount: 1,
           itemBuilder: ((context, index) {
             return Card(
               child: Container(
@@ -31,13 +29,13 @@ class ChampionCardWidget extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             backgroundImage:
-                                NetworkImage(viewModel.champion[index].image),
+                                AssetImage('assets/images/lol.jpeg'),
                           ),
                           const SizedBox(
                             width: 12,
                           ),
                           Text(
-                            viewModel.champion[index].name,
+                            'a',
                             style: TextStyle(fontSize: 22),
                           ),
                           Expanded(

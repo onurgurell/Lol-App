@@ -6,7 +6,7 @@ import 'widgets/custom_champion_card_widget.dart';
 import 'widgets/top_champion_widget.dart';
 
 class HomePageView extends StatelessWidget {
-  final Champion champion;
+  final ModelClass champion;
 
   const HomePageView({Key key, this.champion}) : super(key: key);
   @override

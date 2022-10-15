@@ -6,7 +6,7 @@ import '../../../core/service/champions_sevice.dart';
 class HomeViewModel extends ChangeNotifier {
   final LolService _lolService = LolService();
 
-  List<Champion> champion = [];
+  ModelClass modelClass;
 
   var _loading = false;
   bool get loading => _loading;
@@ -14,7 +14,9 @@ class HomeViewModel extends ChangeNotifier {
   getChampionData() async {
     _loading = true;
     notifyListeners();
-    champion = await _lolService.fetchChampions();
+    modelClass = await _lolService.fetchChampions();
+
+    print(modelClass.toString());
 
     _loading = false;
     notifyListeners();

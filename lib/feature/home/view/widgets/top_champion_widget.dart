@@ -19,11 +19,11 @@ class TopChampionsWidget extends StatelessWidget {
           height: 100,
           width: double.infinity,
           child: ListView.builder(
-            itemCount: viewModel.champion.length,
+            itemCount: 8,
             scrollDirection: Axis.horizontal,
             itemBuilder: ((context, index) {
               return CircleChampionsProfile(
-                image: viewModel.champion[index].image,
+                image: 'assets/images/lol.jpeg',
                 width: 75,
                 height: 50,
               );
