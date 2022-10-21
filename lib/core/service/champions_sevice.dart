@@ -1,10 +1,8 @@
 import 'dart:convert' as convert;
-import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
 import '../model/champion_model.dart';
-import '../utils/constants/constants.dart';
 
 class LolService {
   // Future<List<Champion>> fetchChampions() async {
@@ -29,12 +27,17 @@ class LolService {
   //     log(e);
   //   }
 
-  Future<List<Champion>> fetchChampions() async {
+  Future<List<Champion>> fetchChampions(String name, String role) async {
+    var header = {
+      'X-RapidAPI-Key': 'd604f8e378msh55775ef3170aa66p15b8f4jsnbc316a360597',
+      'X-RapidAPI-Host': 'league-of-legends-champions.p.rapidapi.com'
+    };
     var response = await http.get(
-      Uri.parse(
-        'http://ddragon.leagueoflegends.com/cdn/10.5.1/data/en_US/champion.json',
-      ),
-    );
+        Uri.parse(
+          'https://league-of-legends-champions.p.rapidapi.com/champions/en-us?page=0&size=100&name=$name&role=$role',
+        ),
+        headers: header);
+
     var jsonResponse = convert.jsonDecode(response.body);
 
     Map<String, dynamic> data = jsonResponse['data'];
